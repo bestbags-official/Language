@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>HOota O Black Academy</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  font-family:Tahoma;
+  background:#0b0f1a;
+  color:white;
+}
+
+nav{
+  background:black;
+  padding:15px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+nav a{
+  color:#f5c16c;
+  margin:10px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.container{
+  padding:30px;
+}
+
+.hero{
+  text-align:center;
+  padding:80px 20px;
+}
+
+.hero h1{
+  font-size:45px;
+  color:#f5c16c;
+}
+
+.btn{
+  background:#f5c16c;
+  color:black;
+  padding:12px 30px;
+  border:none;
+  border-radius:25px;
+  font-weight:bold;
+  cursor:pointer;
+  margin-top:20px;
+}
+
+.section{
+  margin-top:60px;
+}
+
+.grid{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.card{
+  background:#111;
+  margin:15px;
+  padding:25px;
+  width:250px;
+  border-radius:15px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.card:hover{
+  box-shadow:0 0 20px #00cfff;
+  transform:translateY(-5px);
+}
+
+.hidden{
+  display:none;
+}
+
+.lesson-box{
+  background:#111;
+  padding:30px;
+  border-radius:15px;
+}
+
+.lesson-box h2{
+  color:#00cfff;
+}
+
+footer{
+  text-align:center;
+  padding:20px;
+  background:black;
+  margin-top:60px;
+  color:#aaa;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div>HOota O Black Academy</div>
+  <div>
+    <a href="#" onclick="showHome()">الرئيسية</a>
+    <a href="#" onclick="showCourse()">الكورس</a>
+  </div>
+</nav>
+
+<!-- الصفحة الرئيسية -->
+<div id="home" class="container">
+  <div class="hero">
+    <h1>تعلم إنشاء المواقع من الصفر</h1>
+    <p>أكاديمية عربية لتعليم HTML و CSS و JavaScript خطوة بخطوة</p>
+    <button class="btn" onclick="showCourse()">ابدأ الكورس</button>
+  </div>
+
+  <div class="section">
+    <h2>ماذا ستتعلم؟</h2>
+    <div class="grid">
+      <div class="card">HTML من البداية</div>
+      <div class="card">CSS وتصميم احترافي</div>
+      <div class="card">JavaScript والتفاعل</div>
+      <div class="card">إنشاء موقع كامل</div>
+    </div>
+  </div>
+</div>
+
+<!-- صفحة الكورس -->
+<div id="course" class="container hidden">
+  <h2>كورس إنشاء المواقع</h2>
+  <div class="grid">
+    <div class="card" onclick="openLesson(1)">الدرس 1: ما هو HTML؟</div>
+    <div class="card" onclick="openLesson(2)">الدرس 2: أول صفحة HTML</div>
+    <div class="card" onclick="openLesson(3)">الدرس 3: CSS</div>
+    <div class="card" onclick="openLesson(4)">الدرس 4: JavaScript</div>
+  </div>
+</div>
+
+<!-- صفحة الدرس -->
+<div id="lesson" class="container hidden">
+  <button class="btn" onclick="showCourse()">⬅ الرجوع للكورس</button>
+  <div class="lesson-box">
+    <h2 id="lessonTitle"></h2>
+    <p id="lessonContent"></p>
+  </div>
+</div>
+
+<footer>
+© 2025 HOota O Black Academy – جميع الحقوق محفوظة
+</footer>
+
+<script>
+const lessons = {
+  1:{
+    title:"ما هو HTML؟",
+    content:"HTML هي لغة بناء صفحات الويب، تُستخدم لإنشاء الهيكل الأساسي للمواقع."
+  },
+  2:{
+    title:"أول صفحة HTML",
+    content:"في هذا الدرس ستتعلم كيفية إنشاء أول ملف HTML وتشغيله في المتصفح."
+  },
+  3:{
+    title:"CSS والتصميم",
+    content:"CSS تُستخدم لتنسيق الألوان والخطوط وتحويل الصفحة إلى تصميم احترافي."
+  },
+  4:{
+    title:"JavaScript",
+    content:"JavaScript تضيف التفاعل للموقع مثل الأزرار والنماذج والتنقل."
+  }
+};
+
+function showHome(){
+  document.getElementById("home").classList.remove("hidden");
+  document.getElementById("course").classList.add("hidden");
+  document.getElementById("lesson").classList.add("hidden");
+}
+
+function showCourse(){
+  document.getElementById("home").classList.add("hidden");
+  document.getElementById("course").classList.remove("hidden");
+  document.getElementById("lesson").classList.add("hidden");
+}
+
+function openLesson(num){
+  document.getElementById("lessonTitle").innerText = lessons[num].title;
+  document.getElementById("lessonContent").innerText = lessons[num].content;
+
+  document.getElementById("home").classList.add("hidden");
+  document.getElementById("course").classList.add("hidden");
+  document.getElementById("lesson").classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>
