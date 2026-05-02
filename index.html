@@ -2,198 +2,191 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>HOota O Black Academy</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<title>EduLang - منصة تعلم اللغات</title>
 <style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
 body{
-  margin:0;
-  font-family:Tahoma;
-  background:#0b0f1a;
-  color:white;
+    background:#f4f7fa;
+    color:#333;
 }
-
-nav{
-  background:black;
-  padding:15px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+header{
+    background:linear-gradient(135deg,#0077ff,#00c6ff);
+    color:white;
+    padding:20px 50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
-
+header h1{
+    font-size:28px;
+}
 nav a{
-  color:#f5c16c;
-  margin:10px;
-  text-decoration:none;
-  font-weight:bold;
+    color:white;
+    text-decoration:none;
+    margin:0 15px;
+    font-weight:bold;
 }
-
-.container{
-  padding:30px;
-}
-
 .hero{
-  text-align:center;
-  padding:80px 20px;
+    text-align:center;
+    padding:100px 20px;
+    background:url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f') center/cover;
+    color:white;
 }
-
-.hero h1{
-  font-size:45px;
-  color:#f5c16c;
+.hero h2{
+    font-size:48px;
+    margin-bottom:20px;
 }
-
-.btn{
-  background:#f5c16c;
-  color:black;
-  padding:12px 30px;
-  border:none;
-  border-radius:25px;
-  font-weight:bold;
-  cursor:pointer;
-  margin-top:20px;
+.hero p{
+    font-size:20px;
+    margin-bottom:30px;
 }
-
-.section{
-  margin-top:60px;
+.hero button{
+    padding:15px 30px;
+    border:none;
+    background:#ffcc00;
+    color:#333;
+    font-size:18px;
+    border-radius:8px;
+    cursor:pointer;
 }
-
-.grid{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
+.languages{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+    padding:50px;
 }
-
 .card{
-  background:#111;
-  margin:15px;
-  padding:25px;
-  width:250px;
-  border-radius:15px;
-  cursor:pointer;
-  transition:0.3s;
+    background:white;
+    border-radius:15px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.1);
+    overflow:hidden;
+    transition:0.3s;
 }
-
 .card:hover{
-  box-shadow:0 0 20px #00cfff;
-  transform:translateY(-5px);
+    transform:translateY(-10px);
 }
-
-.hidden{
-  display:none;
+.card img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
 }
-
-.lesson-box{
-  background:#111;
-  padding:30px;
-  border-radius:15px;
+.card-content{
+    padding:20px;
 }
-
-.lesson-box h2{
-  color:#00cfff;
+.card-content h3{
+    margin-bottom:10px;
 }
-
+.card-content p{
+    margin-bottom:15px;
+}
+.card-content button{
+    padding:10px 20px;
+    border:none;
+    background:#0077ff;
+    color:white;
+    border-radius:8px;
+    cursor:pointer;
+}
+.quiz{
+    background:white;
+    margin:50px;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.1);
+}
+.quiz h2{
+    margin-bottom:20px;
+}
+.quiz button{
+    margin-top:15px;
+    padding:12px 20px;
+    border:none;
+    background:#00a86b;
+    color:white;
+    border-radius:8px;
+    cursor:pointer;
+}
 footer{
-  text-align:center;
-  padding:20px;
-  background:black;
-  margin-top:60px;
-  color:#aaa;
+    text-align:center;
+    padding:20px;
+    background:#222;
+    color:white;
 }
 </style>
 </head>
-
 <body>
 
-<nav>
-  <div>HOota O Black Academy</div>
-  <div>
-    <a href="#" onclick="showHome()">الرئيسية</a>
-    <a href="#" onclick="showCourse()">الكورس</a>
-  </div>
-</nav>
+<header>
+    <h1>EduLang</h1>
+    <nav>
+        <a href="#home">الرئيسية</a>
+        <a href="#languages">اللغات</a>
+        <a href="#quiz">الاختبارات</a>
+    </nav>
+</header>
 
-<!-- الصفحة الرئيسية -->
-<div id="home" class="container">
-  <div class="hero">
-    <h1>تعلم إنشاء المواقع من الصفر</h1>
-    <p>أكاديمية عربية لتعليم HTML و CSS و JavaScript خطوة بخطوة</p>
-    <button class="btn" onclick="showCourse()">ابدأ الكورس</button>
-  </div>
+<section class="hero" id="home">
+    <h2>تعلم اللغات بسهولة واحترافية</h2>
+    <p>الإنجليزية - الفرنسية - الروسية في منصة واحدة</p>
+    <button onclick="scrollToLanguages()">ابدأ الآن</button>
+</section>
 
-  <div class="section">
-    <h2>ماذا ستتعلم؟</h2>
-    <div class="grid">
-      <div class="card">HTML من البداية</div>
-      <div class="card">CSS وتصميم احترافي</div>
-      <div class="card">JavaScript والتفاعل</div>
-      <div class="card">إنشاء موقع كامل</div>
+<section class="languages" id="languages">
+    <div class="card">
+        <img src="https://flagcdn.com/w640/gb.png">
+        <div class="card-content">
+            <h3>اللغة الإنجليزية</h3>
+            <p>تعلم المحادثة والقواعد والمفردات.</p>
+            <button onclick="showLesson('English')">ابدأ</button>
+        </div>
     </div>
-  </div>
-</div>
 
-<!-- صفحة الكورس -->
-<div id="course" class="container hidden">
-  <h2>كورس إنشاء المواقع</h2>
-  <div class="grid">
-    <div class="card" onclick="openLesson(1)">الدرس 1: ما هو HTML؟</div>
-    <div class="card" onclick="openLesson(2)">الدرس 2: أول صفحة HTML</div>
-    <div class="card" onclick="openLesson(3)">الدرس 3: CSS</div>
-    <div class="card" onclick="openLesson(4)">الدرس 4: JavaScript</div>
-  </div>
-</div>
+    <div class="card">
+        <img src="https://flagcdn.com/w640/fr.png">
+        <div class="card-content">
+            <h3>اللغة الفرنسية</h3>
+            <p>اكتسب مهارات التواصل والقراءة بسهولة.</p>
+            <button onclick="showLesson('French')">ابدأ</button>
+        </div>
+    </div>
 
-<!-- صفحة الدرس -->
-<div id="lesson" class="container hidden">
-  <button class="btn" onclick="showCourse()">⬅ الرجوع للكورس</button>
-  <div class="lesson-box">
-    <h2 id="lessonTitle"></h2>
-    <p id="lessonContent"></p>
-  </div>
-</div>
+    <div class="card">
+        <img src="https://flagcdn.com/w640/ru.png">
+        <div class="card-content">
+            <h3>اللغة الروسية</h3>
+            <p>تعلم أساسيات اللغة الروسية بطريقة ممتعة.</p>
+            <button onclick="showLesson('Russian')">ابدأ</button>
+        </div>
+    </div>
+</section>
+
+<section class="quiz" id="quiz">
+    <h2>اختبار سريع</h2>
+    <p>ما معنى كلمة "Hello"؟</p>
+    <button onclick="checkAnswer()">مرحبا</button>
+</section>
 
 <footer>
-© 2025 HOota O Black Academy – جميع الحقوق محفوظة
+    <p>© 2026 EduLang - جميع الحقوق محفوظة</p>
 </footer>
 
 <script>
-const lessons = {
-  1:{
-    title:"ما هو HTML؟",
-    content:"HTML هي لغة بناء صفحات الويب، تُستخدم لإنشاء الهيكل الأساسي للمواقع."
-  },
-  2:{
-    title:"أول صفحة HTML",
-    content:"في هذا الدرس ستتعلم كيفية إنشاء أول ملف HTML وتشغيله في المتصفح."
-  },
-  3:{
-    title:"CSS والتصميم",
-    content:"CSS تُستخدم لتنسيق الألوان والخطوط وتحويل الصفحة إلى تصميم احترافي."
-  },
-  4:{
-    title:"JavaScript",
-    content:"JavaScript تضيف التفاعل للموقع مثل الأزرار والنماذج والتنقل."
-  }
-};
-
-function showHome(){
-  document.getElementById("home").classList.remove("hidden");
-  document.getElementById("course").classList.add("hidden");
-  document.getElementById("lesson").classList.add("hidden");
+function scrollToLanguages(){
+    document.getElementById("languages").scrollIntoView({behavior:"smooth"});
 }
 
-function showCourse(){
-  document.getElementById("home").classList.add("hidden");
-  document.getElementById("course").classList.remove("hidden");
-  document.getElementById("lesson").classList.add("hidden");
+function showLesson(language){
+    alert("أهلاً بك في دورة " + language);
 }
 
-function openLesson(num){
-  document.getElementById("lessonTitle").innerText = lessons[num].title;
-  document.getElementById("lessonContent").innerText = lessons[num].content;
-
-  document.getElementById("home").classList.add("hidden");
-  document.getElementById("course").classList.add("hidden");
-  document.getElementById("lesson").classList.remove("hidden");
+function checkAnswer(){
+    alert("إجابة صحيحة 🎉");
 }
 </script>
 
